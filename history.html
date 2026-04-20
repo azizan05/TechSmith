@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Transaksi - TechSmith</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search">
+    <link rel="stylesheet" href="product.css">
+     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="history.css">
+   
+</head>
+<body>
+
+<!-- HEADER (tidak diubah) -->
+<header>
+    <img class="logo" src="assets/store logo.png" alt="logo">
+    <nav>
+        <ul class="nav_link">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="product.html">Produk</a></li>
+            <li><a href="about.html" >Tentang</a></li>
+            <li><a href="history.html" class="active">Riwayat Transaksi</a></li>
+        </ul>
+    </nav>
+    <form class="form" onsubmit="return false;">
+        <div class="search">
+            <span class="search-icon material-symbols-outlined">search</span>
+            <input class="search-input" type="search" placeholder="Search">
+        </div>
+    </form>
+    <div id="cart-icon">
+        <i class="ri-shopping-bag-4-line"></i>
+        <span class="cart-item-count"></span>
+    </div>
+</header>
+
+<!-- <a href="Product.html" class="back-link"><i class="ri-arrow-left-line"></i> Kembali ke Produk</a> -->
+
+<div class="page-title">
+    <h1>Riwayat Transaksi</h1>
+    <p>Semua riwayat pembelian kamu tersimpan di sini</p>
+</div>
+
+<div class="history-wrapper">
+
+    <!-- STATS -->
+    <div class="stats-bar" id="stats-bar" style="display:none">
+        <div class="stat-card">
+            <div class="stat-icon blue"><i class="ri-shopping-bag-3-line"></i></div>
+            <div>
+                <div class="stat-label">Total Pesanan</div>
+                <div class="stat-value" id="stat-total">0</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon green"><i class="ri-money-dollar-circle-line"></i></div>
+            <div>
+                <div class="stat-label">Total Pengeluaran</div>
+                <div class="stat-value" id="stat-spend">Rp 0</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon orange"><i class="ri-box-3-line"></i></div>
+            <div>
+                <div class="stat-label">Total Produk Dibeli</div>
+                <div class="stat-value" id="stat-items">0</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar" id="filter-bar" style="display:none">
+        <span>Filter:</span>
+        <button class="filter-btn active" onclick="filterOrders('semua', this)">Semua</button>
+        <button class="filter-btn" onclick="filterOrders('Diproses', this)">Diproses</button>
+        <button class="filter-btn" onclick="filterOrders('Dikirim', this)">Dikirim</button>
+        <button class="filter-btn" onclick="filterOrders('Selesai', this)">Selesai</button>
+        <button class="clear-btn" onclick="confirmClearAll()">
+            <i class="ri-delete-bin-line"></i> Hapus Semua
+        </button>
+    </div>
+
+    <!-- ORDER LIST -->
+    <div id="order-list"></div>
+</div>
+
+<!-- DELETE CONFIRMATION MODAL -->
+<div class="modal-overlay" id="delete-modal">
+    <div class="modal-box">
+        <i class="ri-delete-bin-2-line"></i>
+        <h3>Hapus Semua Riwayat?</h3>
+        <p>Tindakan ini tidak dapat dibatalkan.<br>Semua data transaksi akan dihapus permanen.</p>
+        <div class="modal-actions">
+            <button class="btn-confirm-del" onclick="clearAllHistory()">Ya, Hapus</button>
+            <button class="btn-cancel-del" onclick="closeModal()">Batal</button>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col-1">
+            <h2 class="footer-logo">TECHSMITH</h2>
+            <p>
+                TechSmith memberikan kemudahan bagi siapa pun
+                yang ingin sukses online. Kami menyediakan produk
+                teknologi terbaik dengan pengalaman belanja yang mudah.
+            </p>
+
+            <div class="social">
+                <i class="ri-instagram-line"></i>
+                <i class="ri-facebook-circle-line"></i>
+                <i class="ri-twitter-x-line"></i>
+                <i class="ri-youtube-line"></i>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Produk</h3>
+            <ul>
+                <li><a href="#">Mouse</a></li>
+                <li><a href="#">Keyboard</a></li>
+                <li><a href="#">Monitor</a></li>
+                <li><a href="#">Komponen PC</a></li>
+                <li><a href="#">Aksesoris</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Informasi</h3>
+            <ul>
+                <li><a href="about.html">Tentang Kami</a></li>
+                <li><a href="#">Cara Belanja</a></li>
+                <li><a href="#">Metode Pembayaran</a></li>
+                <li><a href="#">Pengiriman</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Kontak</h3>
+            <p><i class="ri-map-pin-line"></i> Surabaya, Indonesia</p>
+            <p><i class="ri-phone-line"></i> 0812-3456-7890</p>
+            <p><i class="ri-mail-line"></i> techsmith@gmail.com</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Bantuan</h3>
+            <ul>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Panduan</a></li>
+                <li><a href="#">Laporkan Masalah</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 TechSmith Store. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

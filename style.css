@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ====== HEADER / NAVBAR ====== */
+header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    background-color: #0C2B4E;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+}
+
+.logo-link {
+    background: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo {
+    display: block;
+    width: auto;
+    height: 72px;
+    cursor: pointer;
+    background: none;
+}
+
+nav, nav ul, nav li, a,
+.form, .form input,
+.search, .search span,
+#cart-icon, #cart-icon i {
+    background: none;
+}
+
+.nav_link { list-style: none; }
+
+.nav_link li {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.nav_link li a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #b0cce8;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav_link li a:hover,
+.nav_link li a.active {
+    color: #f3f9fb;
+}
+
+.nav_link li a.active {
+    border-bottom: 2px solid #0080ff;
+    padding-bottom: 2px;
+}
+
+.form {
+    display: flex;
+    margin-left: auto;
+    padding-right: 5px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border-radius: 20px;
+    border: 1px solid #226597;
+    padding: 5px 12px;
+    transition: box-shadow 0.2s;
+}
+
+.search:focus-within {
+    box-shadow: 0 0 0 2px #0080ff;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    width: 300px;
+    font-size: 14px;
+    color: #f3f9fb;
+    background: transparent;
+}
+
+.search-input::placeholder,
+.search-icon {
+    color: #7fa8c9;
+}
+
+#cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 18px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    color: #f3f9fb;
+    background: none;
+}
+
+#cart-icon .cart-item-count {
+    position: absolute;
+    top: 0px; right: 10px;
+    min-width: 20px; height: 20px;
+    padding: 0 5px;
+    background: #e74c3c;
+    border-radius: 50px;
+    font-size: 11px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    font-weight: 700;
+}
+
+/* ====== FOOTER ====== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #4a6d8c;
+    font-size: 13px;
+    background: transparent;
+}
